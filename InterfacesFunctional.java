@@ -46,5 +46,14 @@ public class InterfacesFunctional {
 
         InterfaceClass2 interfaceClass22 = (int i) -> System.out.println("defined parameterised print function using lambda expression - single line" + i);
         interfaceClass22.print(22);
+
+
+        // since we provided the type of argumeter this function accepts, we can even remove the data type in argyment of lambda expression
+        interfaceClass22 = (i) -> System.out.println("defined parameterised print function using lambda expression with removed data type - single line" + i);
+        interfaceClass22.print(23);
+
+        // since we have only one parameter, we don't even need () in expression, we can pass our parameter right away
+        interfaceClass22 = i -> System.out.println("defined parameterised print function using lambda expression with removed data type and braces - single line" + i);
+        interfaceClass22.print(23);
     }
 }
