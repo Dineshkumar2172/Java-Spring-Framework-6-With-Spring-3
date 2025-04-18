@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -130,5 +131,20 @@ public class CollectionAPI {
         Collections.sort(numsList, com); // sorted based on second digit in integer elements
         System.out.println(numsList);
 
+        // let's sort a string array based on the length of the string
+        List<String> listString = new ArrayList<>();
+        listString.add("randomElement");
+        listString.add("sample");
+        listString.add("que");
+        listString.add("addition");
+        Comparator<String> comString = new Comparator<String>() {
+            @Override
+            public int compare(String str1, String str2) {
+                if (str1.length() > str2.length()) return 1; // ascending order - small first, big next
+                return -1;
+            }
+        };
+        Collections.sort(listString, comString);
+        System.out.println(listString);
     }
 }
