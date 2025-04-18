@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -103,5 +105,30 @@ public class CollectionAPI {
         System.out.println(hashTable.putIfAbsent(25, 200));
         System.out.println(hashTable.remove(25));
         System.out.println(hashTable);
+
+        System.out.println();
+        System.out.println("======================================");
+
+        List<Integer> numsList = new ArrayList<>();
+        numsList.add(43);
+        numsList.add(31);
+        numsList.add(72);
+        numsList.add(29);
+
+        // Collections is a utility class in collections framework
+        Collections.sort(numsList);  // it sorts based on element by default
+        System.out.println(numsList);
+
+        // what if I wanna use my own sorting logic, say sort based on second character
+        Comparator<Integer> com = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer num1, Integer num2) {
+                if (num1%10 > num2%10) return 1; // 1 for swap, -1 for not swap
+                else return -1;
+            }
+        };
+        Collections.sort(numsList, com); // sorted based on second digit in integer elements
+        System.out.println(numsList);
+
     }
 }
