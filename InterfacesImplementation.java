@@ -19,7 +19,7 @@ class InterfaceImplementation implements A {
     }
 }
 
-public class Interfaces {
+public class InterfacesImplementation {
     public static void main(String[] args) {
         // creating object and making use of interface methods defined in concrete class
         A interfaceImplementation = new InterfaceImplementation();
