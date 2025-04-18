@@ -1,4 +1,9 @@
 interface A {
+    
+    // variabled defined inside inteface are final and static
+    int age = 40;
+    String area = "something";
+
     void print();
     void show();
 }
