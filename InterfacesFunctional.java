@@ -8,6 +8,11 @@ interface InterfaceClass2 {
     void print(int n); // functional interface method which takes an input
 }
 
+@FunctionalInterface
+interface InterfaceClassWithReturnType {
+    int sum(int i, int j);
+}
+
 class ConcreteFunctionalInterface implements InterfaceClass {
     public void print() {
         System.out.println("defined print function inside concrete class");
@@ -38,15 +43,12 @@ public class InterfacesFunctional {
 
         interfaceClass2.print();
 
-
         // we can reduce the lines even further using lambda expression since we have only one line defined for interface method
         InterfaceClass interfaceClass3 = () -> System.out.println("defined print function using lambda expression - single line");
         interfaceClass3.print();
 
-
         InterfaceClass2 interfaceClass22 = (int i) -> System.out.println("defined parameterised print function using lambda expression - single line" + i);
         interfaceClass22.print(22);
-
 
         // since we provided the type of argumeter this function accepts, we can even remove the data type in argyment of lambda expression
         interfaceClass22 = (i) -> System.out.println("defined parameterised print function using lambda expression with removed data type - single line" + i);
@@ -55,5 +57,11 @@ public class InterfacesFunctional {
         // since we have only one parameter, we don't even need () in expression, we can pass our parameter right away
         interfaceClass22 = i -> System.out.println("defined parameterised print function using lambda expression with removed data type and braces - single line" + i);
         interfaceClass22.print(23);
+
+
+        // Lambda expression with return
+        InterfaceClassWithReturnType interfaceClassWithReturnType = (i, j) -> {return i + j;};
+        int result = interfaceClassWithReturnType.sum(1, 2);
+        System.out.println("parameterised functional interface with return statement : " + result);
     }
 }
