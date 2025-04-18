@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class CollectionAPI {
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class CollectionAPI {
         // }
 
         // List interface support more methods than collection interface, so use it instead of Collection.
-        Collection<Integer> nums = new ArrayList<Integer>();
+        List<Integer> nums = new ArrayList<Integer>();
         nums.add(10);
         nums.add(20);
         nums.add(20);
@@ -31,5 +31,8 @@ public class CollectionAPI {
         for (int num: nums) {
             System.out.println(num);
         }
+
+        System.out.println(nums.get(0)); // return element at index 0
+        System.out.println(nums.indexOf(20)); // return index of element 20
     }    
 }
