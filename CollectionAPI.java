@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 
+// without comparable interface implementation
 class Student {
     String name;
     int age;
@@ -23,6 +24,28 @@ class Student {
         return "Student [name=" + name + ", age=" + age + "]";
     }
 }
+
+// with comparable interface implementation
+class StudentComparable implements Comparable<StudentComparable> {
+    String name;
+    int age;
+
+    public StudentComparable(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+    }
+
+    @Override
+    public int compareTo(StudentComparable that) { // that represents more of a third person since we cannot compare it from this class
+        if (this.age > that.age) return 1;
+        else return -1;
+    }
+} 
 
 public class CollectionAPI {
     public static void main(String[] args) {
@@ -170,16 +193,32 @@ public class CollectionAPI {
         students.add(new Student("Sakthi", 22));
         students.add(new Student("Ratish", 21));
 
-        Comparator<Student> compareStudents = new Comparator<Student>() {
-            @Override
-            public int compare(Student student1, Student student2) {
-                if (student1.age > student2.age) return 1;
-                else return -1;
-            }
-        };
+        // Comparator<Student> compareStudents = new Comparator<Student>() {
+        //     @Override
+        //     public int compare(Student student1, Student student2) {
+        //         if (student1.age > student2.age) return 1;
+        //         else return -1;
+        //     }
+        // };
+
+        // much cleaner version using lambda expression and ternary operator for comparing
+        Comparator<Student> compareStudents = (Student student1, Student student2) -> student1.age > student2.age ? 1 : -1;
 
         Collections.sort(students, compareStudents);
         System.out.println(students);
+
+        // note: since student is a class collections sort doesn't get sorted naturally.
+        // how does Integer gets sorted then? because it implements an interface called comparable which provides default sort order
+        // similarly we can make our student class to implement comparable and use the List<Student> directly inside Collections.sort()
+        // like how we do for List<Integer> with Collections.sort(list);
+        List<StudentComparable> studentComparables = new ArrayList<>();
+        studentComparables.add(new StudentComparable("Dinesh", 24));
+        studentComparables.add(new StudentComparable("Giri", 25));
+        studentComparables.add(new StudentComparable("Rajan", 26));
+        studentComparables.add(new StudentComparable("Sakthi", 22));
+        studentComparables.add(new StudentComparable("Ratish", 21));
+        Collections.sort(studentComparables); // we don't need to define a comparator explicity since it's a part of a class
+        System.out.println(studentComparables); // sorted
     }
     
 }
