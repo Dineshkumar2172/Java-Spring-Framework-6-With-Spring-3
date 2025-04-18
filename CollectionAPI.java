@@ -25,7 +25,7 @@ public class CollectionAPI {
         List<Integer> nums = new ArrayList<Integer>();
         nums.add(10);
         nums.add(20);
-        nums.add(20);
+        nums.add(30);
         System.out.println(nums);
 
         for (int num: nums) {
@@ -34,5 +34,7 @@ public class CollectionAPI {
 
         System.out.println(nums.get(0)); // return element at index 0
         System.out.println(nums.indexOf(20)); // return index of element 20
+
+        // Set
     }    
 }
