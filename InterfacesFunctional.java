@@ -63,5 +63,8 @@ public class InterfacesFunctional {
         InterfaceClassWithReturnType interfaceClassWithReturnType = (i, j) -> {return i + j;};
         int result = interfaceClassWithReturnType.sum(1, 2);
         System.out.println("parameterised functional interface with return statement : " + result);
+        
+        // we can reduce even more characters with the help of lambda expresison for method with return type
+        interfaceClassWithReturnType = (i, j) -> i + j;
     }
 }
