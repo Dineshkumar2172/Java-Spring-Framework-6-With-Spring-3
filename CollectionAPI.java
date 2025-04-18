@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -61,6 +62,7 @@ public class CollectionAPI {
         System.out.println("======================================");
 
         // Map is an interface, hashmap extends it
+        // NOT SYNCHRONIZED
         Map<Integer, Integer> map = new HashMap<>();
         map.put(21, 21);
         map.put(22, 22);
@@ -81,5 +83,25 @@ public class CollectionAPI {
 
         System.out.println();
         System.out.println("======================================");
+
+        // In order to use synchronized version of map, then we can use hashmap
+        // SYNCHRONIZED
+        Map<Integer, Integer> hashTable = new Hashtable<>();
+        hashTable.put(21, 21);
+        hashTable.put(22, 22);
+        hashTable.put(23, 23);
+        hashTable.put(24, 24);
+
+        System.out.println(hashTable);
+        System.out.println(hashTable.get(22));
+        System.out.println(hashTable.keySet());
+        System.out.println(hashTable.values());
+        System.out.println(hashTable.containsKey(21));
+        System.out.println(hashTable.containsValue(22));
+        System.out.println(hashTable.put(21, 100));
+        System.out.println(hashTable.getOrDefault(100, Integer.MIN_VALUE));
+        System.out.println(hashTable.putIfAbsent(25, 200));
+        System.out.println(hashTable.remove(25));
+        System.out.println(hashTable);
     }
 }
