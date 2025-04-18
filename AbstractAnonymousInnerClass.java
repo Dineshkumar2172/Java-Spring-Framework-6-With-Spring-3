@@ -9,6 +9,7 @@ abstract class AbstractClassExample {
 public class AbstractAnonymousInnerClass {
     public static void main(String[] args) {
         AbstractClassExample abstractClass = new AbstractClassExample() {
+            @Override
             public void abstractMethod() {
                 System.out.println("defined abstract method inside anonymous class");
             }
