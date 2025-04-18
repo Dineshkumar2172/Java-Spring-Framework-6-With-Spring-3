@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -8,6 +7,22 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+
+class Student {
+    String name;
+    int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+    }
+}
 
 public class CollectionAPI {
     public static void main(String[] args) {
@@ -146,5 +161,25 @@ public class CollectionAPI {
         };
         Collections.sort(listString, comString);
         System.out.println(listString);
+
+        // let's sort an object now
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Dinesh", 24));
+        students.add(new Student("Giri", 25));
+        students.add(new Student("Rajan", 26));
+        students.add(new Student("Sakthi", 22));
+        students.add(new Student("Ratish", 21));
+
+        Comparator<Student> compareStudents = new Comparator<Student>() {
+            @Override
+            public int compare(Student student1, Student student2) {
+                if (student1.age > student2.age) return 1;
+                else return -1;
+            }
+        };
+
+        Collections.sort(students, compareStudents);
+        System.out.println(students);
     }
+    
 }
