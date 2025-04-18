@@ -22,9 +22,12 @@ class InterfaceImplementation implements A {
 public class Interfaces {
     public static void main(String[] args) {
         // creating object and making use of interface methods defined in concrete class
-        InterfaceImplementation interfaceImplementation = new InterfaceImplementation();
+        A interfaceImplementation = new InterfaceImplementation();
         interfaceImplementation.print();
         interfaceImplementation.show();
+
+        System.out.println(A.age);
+        System.out.println(A.area);
 
         // implementing and defining interface by making using of anonynous inner class.
         A a = new A() {
