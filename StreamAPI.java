@@ -28,5 +28,15 @@ public class StreamAPI {
         // filter - filter input object.
         // map - perform transformation on filtered data.
         // reduce - perform some meaningful operation of transformed data.
+
+        // map, filter, reduce, sorted
+        List<Integer> nums3 = Arrays.asList(4, 1, 2, 5, 1, 8, 9, 10);
+        Stream<Integer> stream = nums3.stream().filter(n -> n%2 == 0).map(n -> n*2).sorted();
+        stream.forEach(n -> System.out.println(n));
+
+        // parallelStream - in order to improve the performance by making use of multiple threads
+        List<Integer> nums4 = Arrays.asList(1, 2, 3, 4);
+        int stream2 =nums4.parallelStream().filter(n -> n%2 == 0).map(n -> n*2).reduce(0, (c,e) -> c+e);
+        System.out.println(stream2);
     }
 }
