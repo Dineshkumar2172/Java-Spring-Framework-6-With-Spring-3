@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CollectionAPI {
     public static void main(String[] args) {
@@ -35,6 +37,13 @@ public class CollectionAPI {
         System.out.println(nums.get(0)); // return element at index 0
         System.out.println(nums.indexOf(20)); // return index of element 20
 
-        // Set
+        // Map is an interface, hashmap extends it
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(21, 21);
+        map.put(22, 22);
+        map.put(23, 23);
+        map.put(24, 24);
+        System.out.println(map);
+
     }    
 }
