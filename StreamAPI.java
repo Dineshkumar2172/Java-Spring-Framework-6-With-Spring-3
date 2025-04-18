@@ -19,7 +19,7 @@ public class StreamAPI {
         System.out.println(result);
 
 
-        // we can peform all above operaiton in single step
+        // we can peform all above operaiton in single step - neat one's
         List<Integer> nums2 = Arrays.asList(1, 2, 3, 4);
         int newResult = nums2.stream().filter(n -> n%2 == 0).map(n -> n%2).reduce(0, (c, e) -> c+e);
         System.out.println(newResult);
